@@ -48,3 +48,4 @@ python manage.py runserver
 ## 👍 Авторы
 - Имя: [твоё имя]
 - Универ: [тут можно добавить]# EasyTask_new_project
+# EasyTask_
