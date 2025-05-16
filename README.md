@@ -50,3 +50,4 @@ python manage.py runserver
 - Универ: [тут можно добавить]# EasyTask_new_project
 # EasyTask_
 # EasyTask_
+# EasyTask_
