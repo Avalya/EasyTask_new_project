@@ -1,0 +1,22 @@
+# === PYTHON / DJANGO ===
+__pycache__/
+*.pyc
+*.pyo
+*.sqlite3
+db.sqlite3
+venv/
+.env
+
+# === FLUTTER ===
+flutter_django/.dart_tool/
+flutter_django/.packages
+flutter_django/.flutter-plugins
+flutter_django/.flutter-plugins-dependencies
+flutter_django/build/
+flutter_django/pubspec.lock
+
+# === OS & IDE ===
+.DS_Store
+.vscode/
+.idea/
+
