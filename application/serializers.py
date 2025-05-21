@@ -1,27 +1,27 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import Application
 
-# 🔹 Сериализатор заявок
+
+# 🔹 Application Serializer
 class ApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Application
-        fields = '__all__'  
+        fields = '__all__'
         read_only_fields = ['reg_number', 'submitted_at']
 
 
-# 🔹 Кастомный токен сериализатор для добавления роли
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
+# 🔹 Custom JWT Token Serializer with Role
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
 
-        # 👇 Добавляем роль в токен
-        if user.is_superuser:
-            token['role'] = 'admin'
-        else:
-            token['role'] = 'department'
+        token['username'] = user.username
+        token['is_staff'] = user.is_staff
+        token['groups'] = list(user.groups.values_list('name', flat=True))
+
+        # Add role to token
+        token['role'] = 'admin' if user.is_superuser else 'department'
 
         return token
-
