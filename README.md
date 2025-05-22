@@ -51,3 +51,4 @@ python manage.py runserver
 # EasyTask_
 # EasyTask_
 # EasyTask_
+# EasyTask_django1
